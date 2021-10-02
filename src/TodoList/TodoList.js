@@ -17,7 +17,7 @@ function TodoList() {
     }
 
     const handleComplete = (id) => {
-        setTodoList(todoList => todoList.map(task => task.id === id ? { ...task, done: true } : task));
+        setTodoList(todoList => todoList.map(task => task.id === id ? { ...task, done: !task.done } : task));
     }
 
     const todoComponents = todoList.map(task => (

@@ -8,7 +8,7 @@ function Todo({ id, text, done, remove, isCompleted }) {
         <div className="Todo">
             <li style={{ textDecoration: done === true ? 'line-through' : "" }}>
                 {text}
-                <Button className='Todo-btn' size='sm' color='success' onClick={() => isCompleted(id)}>Complete</Button>
+                <Button className='Todo-btn' size='sm' color='success' onClick={() => isCompleted(id)}>{done ? 'Un-complete' : 'Complete'}</Button>
                 <Button size='sm' color='danger' onClick={handleDelete}>Remove</Button>
             </li>
         </div>
