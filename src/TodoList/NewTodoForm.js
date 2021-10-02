@@ -8,8 +8,9 @@ function NewTodoForm({ addNewTodo }) {
 
     const [task, setTask] = useState({
         text: "",
-        isCompleted: false
+        done: false
     });
+
     const handleSubmit = (e) => {
         e.preventDefault();
         addNewTodo({ ...task, id: uuid() });

@@ -9,32 +9,32 @@ function TodoList() {
     const [todoList, setTodoList] = useState([]);
 
     const addNewTodo = (newList) => {
-
         setTodoList(todoList => [...todoList, newList])
     }
+
     const handleRemove = (id) => {
-        setTodoList(todoList => todoList.filter(t => t.id !== id))
+        setTodoList(todoList => todoList.filter(task => task.id !== id))
     }
 
     const handleComplete = (id) => {
-        setTodoList(todoList => todoList.map(t => t.id === id ? { ...t, isCompleted: true } : t));
-
+        setTodoList(todoList => todoList.map(task => task.id === id ? { ...task, done: !task.done } : task));
     }
 
-    const todoComponents = todoList.map(t => (
+    const todoComponents = todoList.map(task => (
         < Todo
-            key={t.id}
-            id={t.id}
-            todo={t.text}
+            key={task.id}
+            id={task.id}
+            text={task.text}
+            done={task.done}
             remove={handleRemove}
             isCompleted={handleComplete}
         />
-    ))
+    ));
+
     return (
         <div>
             <NewTodoForm addNewTodo={addNewTodo} />
-            <ul> {todoComponents}</ul>
-
+            <ul>{todoComponents}</ul>
         </div>
     )
 }
