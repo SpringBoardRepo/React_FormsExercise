@@ -13,19 +13,19 @@ function TodoList() {
     }
 
     const handleRemove = (id) => {
-        setTodoList(todoList => todoList.filter(t => t.id !== id))
+        setTodoList(todoList => todoList.filter(task => task.id !== id))
     }
 
     const handleComplete = (id) => {
-        setTodoList(todoList => todoList.map(t => t.id === id ? { ...t, done: true } : t));
+        setTodoList(todoList => todoList.map(task => task.id === id ? { ...task, done: true } : task));
     }
 
-    const todoComponents = todoList.map(t => (
+    const todoComponents = todoList.map(task => (
         < Todo
-            key={t.id}
-            id={t.id}
-            todo={t.text}
-            done={t.done}
+            key={task.id}
+            id={task.id}
+            todo={task.text}
+            done={task.done}
             remove={handleRemove}
             isCompleted={handleComplete}
         />
