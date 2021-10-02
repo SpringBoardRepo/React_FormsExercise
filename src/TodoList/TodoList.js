@@ -24,7 +24,7 @@ function TodoList() {
         < Todo
             key={task.id}
             id={task.id}
-            todo={task.text}
+            text={task.text}
             done={task.done}
             remove={handleRemove}
             isCompleted={handleComplete}
